@@ -15,11 +15,13 @@ module.exports = function(api_key) {
   proto.setApiKey = function(key){
     proto.api_key = key;
   }
-  
+
   proto.devices = {}
   //Return a JSON with all device ("This is implemented with the new API")
   proto.devices.listAll = function(callback){
     console.log("All devices JSON: ");
+    var result = ""
+    var error
     var requestData = {
       uri : 'https://new-api.smartcitizen.me/v0/devices',
       method : "GET"
@@ -28,18 +30,19 @@ module.exports = function(api_key) {
         if ('undefined' !== typeof response){
             if ('200' === response.statusCode || 200 === response.statusCode) {
               //console.log(JSON.parse(body));
-              callback(JSON.parse(body));
+              //callback(error, JSON.parse(body));
+              result = JSON.parse(body);
 
 
             }
             else {
-              callback(500);
-
+              error = "Not 200 status code"
             }
         } else {
-          callback(400);
+          error = "Not send"
 
         }
+        callback(error, result);
     });
   }
   proto.data = {}
