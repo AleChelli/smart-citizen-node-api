@@ -51,9 +51,17 @@ smart.devices.listAll(function(err, data){
     console.log(data);
 })
 ```
+## Other API:
+- .data.getSensors(id, from, to, group_by callback);
+- users.listAll(callback)
+- users.me(callback)
+- sensors.listAll()
+- components.listAll()
+- measurements.listAll()
+- kits.listAll()
 
 ## Development
 
 See something you think can be improved? [Open an issue](https://github.com/AleChelli/smart-citizen-node-api/issues/new) or clone the project and send a pull request with your changes.
 
-###Enjoy IoT
+##Enjoy IoT

@@ -1,6 +1,6 @@
 {
   "name": "smart-citizen-node-api",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "description": " A Node.js wrapper for Smart Citizen Api",
   "main": "index.js",
   "scripts": {
