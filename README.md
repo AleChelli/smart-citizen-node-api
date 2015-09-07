@@ -44,7 +44,10 @@ var smart = smartCitizien(your_api_key);
 Lastly, use the wrapper's helper methods to make the request to Smart Citizen's API.
 ```javascript
 // List all devices
-smart.devices.listAll(function(data){
+smart.devices.listAll(function(err, data){
+  if(err){
+    console.log("Error");
+  } else {
     console.log(data);
 })
 ```
