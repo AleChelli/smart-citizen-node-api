@@ -11,11 +11,6 @@ module.exports = function(api_key) {
 
     proto.api_key = api_key;
 
-    //Set your Api Key here
-    proto.setApiKey = function(key) {
-        proto.api_key = key;
-    }
-
     proto.devices = {}
         //Return a JSON with all device ("This is implemented with the new API")
     proto.devices.listAll = function(callback) {
