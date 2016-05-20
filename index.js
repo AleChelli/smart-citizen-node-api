@@ -6,263 +6,165 @@
 
 module.exports = function(api_key) {
 
-  var request = require('request')
-  var proto = {}
+    var request = require('request');
+    var proto = {};
 
-  proto.api_key = api_key;
+    proto.api_key = api_key;
 
-  //Set your Api Key here
-  proto.setApiKey = function(key){
-    proto.api_key = key;
-  }
+    proto.devices = {}
+        //Return a JSON with all device ("This is implemented with the new API")
+    proto.devices.listAll = function(callback) {
 
-  proto.devices = {}
-  //Return a JSON with all device ("This is implemented with the new API")
-  proto.devices.listAll = function(callback){
-    console.log("All devices JSON: ");
-    var result = ""
-    var error
-    var requestData = {
-      uri : 'https://new-api.smartcitizen.me/v0/devices',
-      method : "GET"
-    }
-    var _req = request(requestData,function(error,response,body){
-        if ('undefined' !== typeof response){
-            if ('200' === response.statusCode || 200 === response.statusCode) {
-              //console.log(JSON.parse(body));
-              //callback(error, JSON.parse(body));
-              result = JSON.parse(body);
-
-
+        var result = "";
+        var error;
+        var requestData = {
+            uri: 'https://api.smartcitizen.me/v0/devices',
+            method: "GET"
+        };
+        var _req = request(requestData, function(error, response, body) {
+            if ('undefined' !== typeof response) {
+                if ('200' === response.statusCode || 200 === response.statusCode) {
+                    result = JSON.parse(body);
+                } else {
+                    error = "Not 200 status code";
+                }
+            } else {
+                error = "Not send";
             }
-            else {
-              error = "Not 200 status code"
+            callback(error, result);
+        });
+    };
+    proto.sensors = {};
+    proto.sensors.listAll = function(callback) {
+
+        var result = "";
+        var error;
+        var requestData = {
+            uri: 'https://api.smartcitizen.me/v0/sensors',
+            method: "GET"
+        };
+        var _req = request(requestData, function(error, response, body) {
+            if ('undefined' !== typeof response) {
+                if ('200' === response.statusCode || 200 === response.statusCode) {
+                    result = JSON.parse(body);
+                } else {
+                    error = "Not 200 status code";
+                }
+            } else {
+                error = "Not send";
             }
-        } else {
-          error = "Not send"
+            callback(error, result);
+        });
+    };
+    proto.users = {};
+    proto.users.listAll = function(callback) {
 
-        }
-        callback(error, result);
-    });
-  };
-  proto.sensors = {};
-  proto.sensors.listAll = function(callback){
-    console.log("All devices JSON: ");
-    var result = ""
-    var error
-    var requestData = {
-      uri : 'https://new-api.smartcitizen.me/v0/sensors',
-      method : "GET"
-    }
-    var _req = request(requestData,function(error,response,body){
-        if ('undefined' !== typeof response){
-            if ('200' === response.statusCode || 200 === response.statusCode) {
-              //console.log(JSON.parse(body));
-              //callback(error, JSON.parse(body));
-              result = JSON.parse(body);
-
-
+        var result = "";
+        var error;
+        var requestData = {
+            uri: 'https://api.smartcitizen.me/v0/users',
+            method: "GET"
+        };
+        var _req = request(requestData, function(error, response, body) {
+            if ('undefined' !== typeof response) {
+                if ('200' === response.statusCode || 200 === response.statusCode) {
+                    result = JSON.parse(body);
+                } else {
+                    error = "Not 200 status code";
+                }
+            } else {
+                error = "Not send";
             }
-            else {
-              error = "Not 200 status code"
+            callback(error, result);
+        });
+    };
+    proto.users.me = function(callback) {
+
+        var result = "";
+        var error;
+        var requestData = {
+            uri: 'http://api.smartcitizen.me/v0/' + api_key + '/me.json',
+            method: "GET"
+        };
+        var _req = request(requestData, function(error, response, body) {
+            if ('undefined' !== typeof response) {
+                if ('200' === response.statusCode || 200 === response.statusCode) {
+                    result = JSON.parse(body);
+                } else {
+                    error = "Not 200 status code";
+                }
+            } else {
+                error = "Not send";
             }
-        } else {
-          error = "Not send"
+            callback(error, result);
+        });
+    };
 
-        }
-        callback(error, result);
-    });
-  };
-  proto.users = {};
-  proto.users.listAll = function(callback){
-    console.log("All devices JSON: ");
-    var result = ""
-    var error
-    var requestData = {
-      uri : 'https://new-api.smartcitizen.me/v0/users',
-      method : "GET"
-    }
-    var _req = request(requestData,function(error,response,body){
-        if ('undefined' !== typeof response){
-            if ('200' === response.statusCode || 200 === response.statusCode) {
-              //console.log(JSON.parse(body));
-              //callback(error, JSON.parse(body));
-              result = JSON.parse(body);
+    proto.measurements = {};
+    proto.measurements.listAll = function(callback) {
 
-
+        var result = "";
+        var error;
+        var requestData = {
+            uri: 'https://api.smartcitizen.me/v0/measurements',
+            method: "GET"
+        };
+        var _req = request(requestData, function(error, response, body) {
+            if ('undefined' !== typeof response) {
+                if ('200' === response.statusCode || 200 === response.statusCode) {
+                    result = JSON.parse(body);
+                } else {
+                    error = "Not 200 status code";
+                }
+            } else {
+                error = "Not send";
             }
-            else {
-              error = "Not 200 status code"
+            callback(error, result);
+        });
+    };
+    proto.kits = {};
+    proto.kits.listAll = function(callback) {
+
+        var result = "";
+        var error;
+        var requestData = {
+            uri: 'https://api.smartcitizen.me/v0/kits',
+            method: "GET"
+        };
+        var _req = request(requestData, function(error, response, body) {
+            if ('undefined' !== typeof response) {
+                if ('200' === response.statusCode || 200 === response.statusCode) {
+                    result = JSON.parse(body);
+                } else {
+                    error = "Not 200 status code";
+                }
+            } else {
+                error = "Not send";
             }
-        } else {
-          error = "Not send"
+            callback(error, result);
+        });
+    };
+    proto.components = {};
+    proto.components.listAll = function(callback) {
 
-        }
-        callback(error, result);
-    });
-  };
-  proto.users.me = function(callback){
-    console.log("All devices JSON: ");
-    var result = ""
-    var error
-    var requestData = {
-      uri : 'http://api.smartcitizen.me/v0.0.1/'+api_key+'/me.json',
-      method : "GET"
-    }
-    var _req = request(requestData,function(error,response,body){
-        if ('undefined' !== typeof response){
-            if ('200' === response.statusCode || 200 === response.statusCode) {
-              //console.log(JSON.parse(body));
-              //callback(error, JSON.parse(body));
-              result = JSON.parse(body);
-
-
+        var result = "";
+        var error;
+        var requestData = {
+            uri: 'https://api.smartcitizen.me/v0/components',
+            method: "GET"
+        };
+        var _req = request(requestData, function(error, response, body) {
+            if ('undefined' !== typeof response) {
+                if ('200' === response.statusCode || 200 === response.statusCode) {
+                    result = JSON.parse(body);
+                } else {
+                    error = "Not 200 status code";
+                }
+            } else {
+                error = "Not send";
             }
-            else {
-              error = "Not 200 status code"
-            }
-        } else {
-          error = "Not send"
-
-        }
-        callback(error, result);
-    });
-  };
-
-  proto.measurements = {};
-  proto.measurements.listAll = function(callback){
-    console.log("All devices JSON: ");
-    var result = ""
-    var error
-    var requestData = {
-      uri : 'https://new-api.smartcitizen.me/v0/measurements',
-      method : "GET"
-    }
-    var _req = request(requestData,function(error,response,body){
-        if ('undefined' !== typeof response){
-            if ('200' === response.statusCode || 200 === response.statusCode) {
-              //console.log(JSON.parse(body));
-              //callback(error, JSON.parse(body));
-              result = JSON.parse(body);
-
-
-            }
-            else {
-              error = "Not 200 status code"
-            }
-        } else {
-          error = "Not send"
-
-        }
-        callback(error, result);
-    });
-  };
-  proto.kits = {};
-  proto.kits.listAll = function(callback){
-    console.log("All devices JSON: ");
-    var result = ""
-    var error
-    var requestData = {
-      uri : 'https://new-api.smartcitizen.me/v0/kits',
-      method : "GET"
-    }
-    var _req = request(requestData,function(error,response,body){
-        if ('undefined' !== typeof response){
-            if ('200' === response.statusCode || 200 === response.statusCode) {
-              //console.log(JSON.parse(body));
-              //callback(error, JSON.parse(body));
-              result = JSON.parse(body);
-
-
-            }
-            else {
-              error = "Not 200 status code"
-            }
-        } else {
-          error = "Not send"
-
-        }
-        callback(error, result);
-    });
-  };
-  proto.kits = {};
-  proto.components.listAll = function(callback){
-    console.log("All devices JSON: ");
-    var result = ""
-    var error
-    var requestData = {
-      uri : 'https://new-api.smartcitizen.me/v0/components',
-      method : "GET"
-    }
-    var _req = request(requestData,function(error,response,body){
-        if ('undefined' !== typeof response){
-            if ('200' === response.statusCode || 200 === response.statusCode) {
-              //console.log(JSON.parse(body));
-              //callback(error, JSON.parse(body));
-              result = JSON.parse(body);
-
-
-            }
-            else {
-              error = "Not 200 status code"
-            }
-        } else {
-          error = "Not send"
-
-        }
-        callback(error, result);
-    });
-  };
-  proto.data = {}
-  //Return a JSON with all device ("This is implemented with the new API")
-  proto.data.getLatestData = function(callback){
-    var result = ""
-    var error
-    console.log("All devices JSON: ");
-    var requestData = {
-      uri : 'http://api.smartcitizen.me/v0.0.1/'+proto.api_key+'/lastpost.json',
-      method : "GET"
-    }
-    var _req = request(requestData,function(error,response,body){
-        if ('undefined' !== typeof response){
-            if ('200' === response.statusCode || 200 === response.statusCode) {
-              result = JSON.parse(body);
-            }
-            else {
-              error = "Not 200 status code"
-            }
-        } else {
-          error = "Not send"
-        }
-        callback(error, result);
-    });
-  }
-  proto.data.getSensors = function(id,from, to, group_by, callback){
-    var result = ""
-    var error
-    console.log("All devices JSON: ");
-    if(from=="" && to=="" && group_by=="") var url = "http://api.smartcitizen.me/v0.0.1/"+proto.api_key+"/"+id+"/posts.json";
-    else if(from == "" && to == "" && group_by != "") var url = "http://api.smartcitizen.me/v0.0.1/"+proto.api_key+"/"+id+"/posts.json?group_by="+group_by;
-    else if(from != "" && to != "" && group_by == "") var url = "http://api.smartcitizen.me/v0.0.1/"+proto.api_key+"/"+id+"/posts.json?from_date="+from_date+"&to_date="+to_date;
-    else if(from != "" && to == "" && group_by != "") var url = "http://api.smartcitizen.me/v0.0.1/"+proto.api_key+"/"+id+"/posts.json?from_date="+from_date+"&group_by="+group_by;
-    var requestData = {
-      uri : url,
-      method : "GET"
-    }
-    var _req = request(requestData,function(error,response,body){
-        if ('undefined' !== typeof response){
-            if ('200' === response.statusCode || 200 === response.statusCode) {
-              result = JSON.parse(body);
-            }
-            else {
-              error = "Not 200 status code"
-            }
-        } else {
-          error = "Not send"
-        }
-        callback(error, result);
-    });
-  }
-
-  return proto;
+            callback(error, result);
+        });
+    };
+    return proto;
 }
