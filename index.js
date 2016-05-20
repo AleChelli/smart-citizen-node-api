@@ -19,7 +19,7 @@ module.exports = function(api_key) {
     proto.devices = {}
         //Return a JSON with all device ("This is implemented with the new API")
     proto.devices.listAll = function(callback) {
-        
+
         var result = "";
         var error;
         var requestData = {
@@ -46,7 +46,7 @@ module.exports = function(api_key) {
     };
     proto.sensors = {};
     proto.sensors.listAll = function(callback) {
-        
+
         var result = "";
         var error;
         var requestData = {
@@ -73,7 +73,7 @@ module.exports = function(api_key) {
     };
     proto.users = {};
     proto.users.listAll = function(callback) {
-        
+
         var result = "";
         var error;
         var requestData = {
@@ -99,7 +99,7 @@ module.exports = function(api_key) {
         });
     };
     proto.users.me = function(callback) {
-        
+
         var result = "";
         var error;
         var requestData = {
@@ -127,7 +127,7 @@ module.exports = function(api_key) {
 
     proto.measurements = {};
     proto.measurements.listAll = function(callback) {
-        
+
         var result = "";
         var error;
         var requestData = {
@@ -154,7 +154,7 @@ module.exports = function(api_key) {
     };
     proto.kits = {};
     proto.kits.listAll = function(callback) {
-        
+
         var result = "";
         var error;
         var requestData = {
@@ -181,7 +181,7 @@ module.exports = function(api_key) {
     };
     proto.components = {};
     proto.components.listAll = function(callback) {
-        
+
         var result = "";
         var error;
         var requestData = {
@@ -206,54 +206,5 @@ module.exports = function(api_key) {
             callback(error, result);
         });
     };
-    proto.data = {}
-        //Return a JSON with all device ("This is implemented with the new API")
-    proto.data.getLatestData = function(callback) {
-        var result = "";
-        var error;
-        
-        var requestData = {
-            uri: 'http://api.smartcitizen.me/v0.0.1/' + proto.api_key + '/lastpost.json',
-            method: "GET"
-        }
-        var _req = request(requestData, function(error, response, body) {
-            if ('undefined' !== typeof response) {
-                if ('200' === response.statusCode || 200 === response.statusCode) {
-                    result = JSON.parse(body);
-                } else {
-                    error = "Not 200 status code";
-                }
-            } else {
-                error = "Not send";
-            }
-            callback(error, result);
-        });
-    }
-    proto.data.getSensors = function(id, from, to, group_by, callback) {
-        var result = "";
-        var error;
-        
-        if (from == "" && to == "" && group_by == "") var url = "http://api.smartcitizen.me/v0.0.1/" + proto.api_key + "/" + id + "/posts.json";
-        else if (from == "" && to == "" && group_by != "") var url = "http://api.smartcitizen.me/v0.0.1/" + proto.api_key + "/" + id + "/posts.json?group_by=" + group_by;
-        else if (from != "" && to != "" && group_by == "") var url = "http://api.smartcitizen.me/v0.0.1/" + proto.api_key + "/" + id + "/posts.json?from_date=" + from_date + "&to_date=" + to_date;
-        else if (from != "" && to == "" && group_by != "") var url = "http://api.smartcitizen.me/v0.0.1/" + proto.api_key + "/" + id + "/posts.json?from_date=" + from_date + "&group_by=" + group_by;
-        var requestData = {
-            uri: url,
-            method: "GET"
-        }
-        var _req = request(requestData, function(error, response, body) {
-            if ('undefined' !== typeof response) {
-                if ('200' === response.statusCode || 200 === response.statusCode) {
-                    result = JSON.parse(body);
-                } else {
-                    error = "Not 200 status code";
-                }
-            } else {
-                error = "Not send";
-            }
-            callback(error, result);
-        });
-    }
-
     return proto;
 }

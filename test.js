@@ -37,14 +37,4 @@ smart.components.listAll(function(err, data){
     console.log(data);
   }
 })
-
-//a.data.getLatestData();
-smart.data.getSensors(65, function(err,data){
-  if(err){
-    console.log(err)
-  }
-  else{
-    console.log(data);
-  }
-})
 console.log(smart.api_key)
