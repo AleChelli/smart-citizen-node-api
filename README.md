@@ -35,10 +35,10 @@ This project depends on [request](https://github.com/request/request) to make HT
 
 First, instantiate the wrapper.You need an Api Key [obtain here](https://smartcitizen.me/users/login)
 ```javascript
-var smartCitizien = require("smart-citizen-node-api");
+var smartCitizen = require("smart-citizen-node-api");
 
 // You need an Api Key, you will always use your api_key
-var smart = smartCitizien(your_api_key);
+var smart = smartCitizen(your_api_key);
 ```
 
 Lastly, use the wrapper's helper methods to make the request to Smart Citizen's API.
