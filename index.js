@@ -88,7 +88,7 @@ module.exports = function(api_key) {
         var result = "";
         var error;
         var requestData = {
-            uri: 'http://api.smartcitizen.me/v0.0.1/' + api_key + '/me.json',
+            uri: 'http://api.smartcitizen.me/v0/' + api_key + '/me.json',
             method: "GET"
         };
         var _req = request(requestData, function(error, response, body) {
