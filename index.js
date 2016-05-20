@@ -23,7 +23,7 @@ module.exports = function(api_key) {
         var result = "";
         var error;
         var requestData = {
-            uri: 'https://new-api.smartcitizen.me/v0/devices',
+            uri: 'https://api.smartcitizen.me/v0/devices',
             method: "GET"
         };
         var _req = request(requestData, function(error, response, body) {
@@ -45,7 +45,7 @@ module.exports = function(api_key) {
         var result = "";
         var error;
         var requestData = {
-            uri: 'https://new-api.smartcitizen.me/v0/sensors',
+            uri: 'https://api.smartcitizen.me/v0/sensors',
             method: "GET"
         };
         var _req = request(requestData, function(error, response, body) {
@@ -67,7 +67,7 @@ module.exports = function(api_key) {
         var result = "";
         var error;
         var requestData = {
-            uri: 'https://new-api.smartcitizen.me/v0/users',
+            uri: 'https://api.smartcitizen.me/v0/users',
             method: "GET"
         };
         var _req = request(requestData, function(error, response, body) {
@@ -111,7 +111,7 @@ module.exports = function(api_key) {
         var result = "";
         var error;
         var requestData = {
-            uri: 'https://new-api.smartcitizen.me/v0/measurements',
+            uri: 'https://api.smartcitizen.me/v0/measurements',
             method: "GET"
         };
         var _req = request(requestData, function(error, response, body) {
@@ -133,7 +133,7 @@ module.exports = function(api_key) {
         var result = "";
         var error;
         var requestData = {
-            uri: 'https://new-api.smartcitizen.me/v0/kits',
+            uri: 'https://api.smartcitizen.me/v0/kits',
             method: "GET"
         };
         var _req = request(requestData, function(error, response, body) {
@@ -155,7 +155,7 @@ module.exports = function(api_key) {
         var result = "";
         var error;
         var requestData = {
-            uri: 'https://new-api.smartcitizen.me/v0/components',
+            uri: 'https://api.smartcitizen.me/v0/components',
             method: "GET"
         };
         var _req = request(requestData, function(error, response, body) {
