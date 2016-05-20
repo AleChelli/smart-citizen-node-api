@@ -25,21 +25,16 @@ module.exports = function(api_key) {
         var requestData = {
             uri: 'https://new-api.smartcitizen.me/v0/devices',
             method: "GET"
-        }
+        };
         var _req = request(requestData, function(error, response, body) {
             if ('undefined' !== typeof response) {
                 if ('200' === response.statusCode || 200 === response.statusCode) {
-                    //console.log(JSON.parse(body));
-                    //callback(error, JSON.parse(body));
                     result = JSON.parse(body);
-
-
                 } else {
                     error = "Not 200 status code";
                 }
             } else {
                 error = "Not send";
-
             }
             callback(error, result);
         });
@@ -52,21 +47,16 @@ module.exports = function(api_key) {
         var requestData = {
             uri: 'https://new-api.smartcitizen.me/v0/sensors',
             method: "GET"
-        }
+        };
         var _req = request(requestData, function(error, response, body) {
             if ('undefined' !== typeof response) {
                 if ('200' === response.statusCode || 200 === response.statusCode) {
-                    //console.log(JSON.parse(body));
-                    //callback(error, JSON.parse(body));
                     result = JSON.parse(body);
-
-
                 } else {
                     error = "Not 200 status code";
                 }
             } else {
                 error = "Not send";
-
             }
             callback(error, result);
         });
@@ -79,21 +69,16 @@ module.exports = function(api_key) {
         var requestData = {
             uri: 'https://new-api.smartcitizen.me/v0/users',
             method: "GET"
-        }
+        };
         var _req = request(requestData, function(error, response, body) {
             if ('undefined' !== typeof response) {
                 if ('200' === response.statusCode || 200 === response.statusCode) {
-                    //console.log(JSON.parse(body));
-                    //callback(error, JSON.parse(body));
                     result = JSON.parse(body);
-
-
                 } else {
                     error = "Not 200 status code";
                 }
             } else {
                 error = "Not send";
-
             }
             callback(error, result);
         });
@@ -105,21 +90,16 @@ module.exports = function(api_key) {
         var requestData = {
             uri: 'http://api.smartcitizen.me/v0.0.1/' + api_key + '/me.json',
             method: "GET"
-        }
+        };
         var _req = request(requestData, function(error, response, body) {
             if ('undefined' !== typeof response) {
                 if ('200' === response.statusCode || 200 === response.statusCode) {
-                    //console.log(JSON.parse(body));
-                    //callback(error, JSON.parse(body));
                     result = JSON.parse(body);
-
-
                 } else {
                     error = "Not 200 status code";
                 }
             } else {
                 error = "Not send";
-
             }
             callback(error, result);
         });
@@ -133,21 +113,16 @@ module.exports = function(api_key) {
         var requestData = {
             uri: 'https://new-api.smartcitizen.me/v0/measurements',
             method: "GET"
-        }
+        };
         var _req = request(requestData, function(error, response, body) {
             if ('undefined' !== typeof response) {
                 if ('200' === response.statusCode || 200 === response.statusCode) {
-                    //console.log(JSON.parse(body));
-                    //callback(error, JSON.parse(body));
                     result = JSON.parse(body);
-
-
                 } else {
                     error = "Not 200 status code";
                 }
             } else {
                 error = "Not send";
-
             }
             callback(error, result);
         });
@@ -160,21 +135,16 @@ module.exports = function(api_key) {
         var requestData = {
             uri: 'https://new-api.smartcitizen.me/v0/kits',
             method: "GET"
-        }
+        };
         var _req = request(requestData, function(error, response, body) {
             if ('undefined' !== typeof response) {
                 if ('200' === response.statusCode || 200 === response.statusCode) {
-                    //console.log(JSON.parse(body));
-                    //callback(error, JSON.parse(body));
                     result = JSON.parse(body);
-
-
                 } else {
                     error = "Not 200 status code";
                 }
             } else {
                 error = "Not send";
-
             }
             callback(error, result);
         });
@@ -187,21 +157,16 @@ module.exports = function(api_key) {
         var requestData = {
             uri: 'https://new-api.smartcitizen.me/v0/components',
             method: "GET"
-        }
+        };
         var _req = request(requestData, function(error, response, body) {
             if ('undefined' !== typeof response) {
                 if ('200' === response.statusCode || 200 === response.statusCode) {
-                    //console.log(JSON.parse(body));
-                    //callback(error, JSON.parse(body));
                     result = JSON.parse(body);
-
-
                 } else {
                     error = "Not 200 status code";
                 }
             } else {
                 error = "Not send";
-
             }
             callback(error, result);
         });
